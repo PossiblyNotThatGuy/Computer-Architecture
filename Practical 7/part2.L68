@@ -1,0 +1,36 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 12/01/2022 15:58:24
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :  Practical 7
+00000000                             3  * Written by :  Jake McDonnell
+00000000                             4  * Date       :  12/1/22
+00000000                             5  * Description:  Assembly Practical
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8      
+00001000                             9      START:                  
+00001000  123C 0009                 10          MOVE.B      #9, D1          /*Moves number 9 to register D1*/
+00001004  43F9 0000101A             11          LEA text,   A1              /*Loads effective memory address A1*/
+0000100A  303C 000E                 12          MOVE        #14, D0         /*Moves number 14 to register D0*/
+0000100E  4E4F                      13          TRAP        #15             /*Examines the instruction (number 15) sent to register D0*/
+00001010                            14          
+00001010  303C 0003                 15          MOVE        #3, D0          /*Moves the number 3 to register D0*/
+00001014  4E4F                      16          TRAP        #15             /*Examines the instruction sent to register D0 again*/
+00001016                            17          
+00001016  FFFF FFFF                 18      SIMHALT
+0000101A                            19      
+0000101A= 44 61 74 61 20 52 ...     20  text    dc.b    'Data Register: ' ,0
+0000102A                            21      
+0000102A                            22      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000
+TEXT                101A
