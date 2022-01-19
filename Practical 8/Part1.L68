@@ -1,0 +1,43 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 19/01/2022 15:40:57
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :  Practical 8 Part 1
+00000000                             3  * Written by :  Jake McDonnell
+00000000                             4  * Date       :  19/01/2022
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Output
+00001000  43F9 0000101C             11      LEA        MESSAGE,A1
+00001006  103C 000E                 12      MOVE.B      #14,D0
+0000100A  4E4F                      13      TRAP        #15
+0000100C                            14  
+0000100C                            15  * Input
+0000100C  103C 0004                 16      MOVE.B      #4,D0
+00001010  4E4F                      17      TRAP        #15
+00001012                            18  
+00001012  103C 0003                 19      MOVE.B      #3,D0
+00001016  4E4F                      20      TRAP        #15
+00001018                            21        
+00001018                            22                
+00001018                            23          
+00001018                            24  
+00001018  FFFF FFFF                 25      SIMHALT             ; halt simulator
+0000101C                            26  
+0000101C= 57 68 61 74 20 61 ...     27  message DC.B    'What are your gamer points?',0
+00001038                            28  
+00001038                            29      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+MESSAGE             101C
+START               1000
