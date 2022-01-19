@@ -1,0 +1,44 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 19/01/2022 16:36:11
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :  Practical 8 Part 2
+00000000                             3  * Written by :  Jake McDonnell
+00000000                             4  * Date       :  19/01/2022
+00000000                             5  * Description:  
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Output
+00001000  45F9 0000101C             11      LEA         Health,A2
+00001006  13FC 005F 0000101C        12      MOVE.B      #95,Health
+0000100E  5A52                      13      ADD         #5,(A2)
+00001010  1212                      14      MOVE.B      (A2),D1
+00001012                            15  
+00001012                            16  * Input
+00001012  103C 0003                 17      MOVE.B      #3,D0
+00001016  4E4F                      18      TRAP        #15
+00001018                            19  
+00001018                            20     * MOVE.B      #4,D0
+00001018                            21    
+00001018                            22        
+00001018                            23                
+00001018                            24          
+00001018                            25  
+00001018  FFFF FFFF                 26      SIMHALT             ; halt simulator
+0000101C                            27  
+0000101C= 10                        28  Health DC.B $10
+0000101D                            29  
+0000101D                            30      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+HEALTH              101C
+START               1000
