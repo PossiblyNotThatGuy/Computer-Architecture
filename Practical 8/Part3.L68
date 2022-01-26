@@ -1,0 +1,73 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 26/01/2022 16:32:43
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :  Practical 8 Part 3
+00000000                             3  * Written by :  Jake McDonnell
+00000000                             4  * Date       :  26/01/2022
+00000000                             5  * Description:  
+00000000                             6  *-----------------------------------------------------------
+00000000                             7  
+00001000                             8      ORG    $1000
+00001000                             9  START:                  ; first instruction of program
+00001000                            10  
+00001000  43F9 00001054             11      LEA             MESSAGE,A1
+00001006  103C 0004                 12      MOVE.B          #4,D0
+0000100A  103C 0002                 13      MOVE.B          #2,D0
+0000100E  4E4F                      14      TRAP            #15
+00001010                            15      
+00001010                            16      * Input
+00001010  103C 0004                 17      MOVE.B      #4,D0
+00001014  4E4F                      18      TRAP        #15
+00001016                            19  
+00001016  103C 0003                 20      MOVE.B      #3,D0
+0000101A  4E4F                      21      TRAP        #15
+0000101C                            22  
+0000101C                            23      
+0000101C  103C 0004                 24      MOVE.B          #4,D0
+00001020  103C 0005                 25      MOVE.B          #5,D0
+00001024  4E4F                      26      TRAP            #15
+00001026                            27          
+00001026  103C 0008                 28      MOVE.B          #8,D0
+0000102A  4E4F                      29      TRAP            #15
+0000102C                            30      
+0000102C  103C 000B                 31      MOVE.B          #11,D0
+00001030  4E4F                      32      TRAP            #15
+00001032                            33      
+00001032  103C 000D                 34      MOVE.B          #13,D0
+00001036  4E4F                      35      TRAP            #15
+00001038                            36      
+00001038  103C 0011                 37      MOVE.B          #17,D0
+0000103C  4E4F                      38      TRAP            #15
+0000103E                            39      
+0000103E  103C 0012                 40      MOVE.B          #18,D0
+00001042  4E4F                      41      TRAP            #15
+00001044                            42      
+00001044  103C 0012                 43      MOVE.B          #18,D0
+00001048  4E4F                      44      TRAP            #15
+0000104A                            45      
+0000104A  103C 0015                 46      MOVE.B          #21,D0
+0000104E  4E4F                      47      TRAP            #15
+00001050                            48      
+00001050                            49    
+00001050                            50      
+00001050                            51          
+00001050                            52      
+00001050                            53                 
+00001050                            54  
+00001050  FFFF FFFF                 55      SIMHALT             ; halt simulator
+00001054                            56  
+00001054= 48 65 6C 6C 6F 20 ...     57  message DC.B 'Hello World',0
+00001060                            58  
+00001060                            59      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+MESSAGE             1054
+START               1000
