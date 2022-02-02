@@ -1,0 +1,57 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 02/02/2022 15:13:44
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :  Sample Game Loop
+00000000                             3  * Written by :  Jake McDonnell
+00000000                             4  * Date       :  2/22/2022
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7    ORG    $1000
+00001000                             8  START: 
+00001000  43F9 00001038              9      LEA MESSAGE, A1 #MESSAGE TO PRINT OUT
+00001006                            10      
+00001006  31FC 01F4 2000            11      MOVE.W #500, $2000 #STORE THE OVERALL CARBON LEVELS IN THE AIR
+0000100C                            12  
+0000100C  103C 0003                 13      MOVE.B  #3, D0 # THE NUMBER OF TIMES WE WILL LOOP
+00001010                            14      
+00001010                            15  NEXT:
+00001010  5340                      16      SUB #1, D0 # TAKING ONE AWAY FROM THE THE LOOP COUNTER
+00001012  5201                      17      ADD.B #1, D1 #ADDING UNITS TO OUR INVENTORY
+00001014                            18      
+00001014  1400                      19      MOVE.B D0, D2 #SWAPPING OUT D0 TO D2 TEMPARALY
+00001016                            20      
+00001016  B27C 0002                 21      CMP #2, D1 #COMPARING THE NUMBER OF UNITS WITH 2, IF GREATER THAN 2 CARBON IS REDUCING
+0000101A  6100 0010                 22      BSR CARBON_REDUCTION #WE NEED GO TO THE THE CARBON REDUCTION SUB ROUTINE
+0000101E                            23      
+0000101E  103C 000E                 24      MOVE.B #14, D0 #NEXT STEP AFTER SUB ROUTINE, DISPLAY LOOPY TEXT
+00001022  4E4F                      25      TRAP    #15 # INTERUPT TO DISPLAY TEXT
+00001024                            26      
+00001024  1002                      27      MOVE.B D2, D0 #RESTORE THE VALUE OF THE LOOP COUNTER
+00001026                            28      
+00001026  B07C 0000                 29      CMP #0, D0 #COMPARE LOOP COUNTER WITH 0, STOP AT 0
+0000102A  66E4                      30      BNE NEXT # GO BACK TO THE THE TOP OF THE LOOP
+0000102C                            31  
+0000102C                            32  CARBON_REDUCTION:
+0000102C  0478 000A 2000            33      SUB.W #10, $2000 # THE SUB ROUTINE BEGINS TO REDUCE CARBON IN THE AIR
+00001032  4E75                      34      RTS #RETURN TO WHERE SUB ROUTINE WAS CALLED FROM
+00001034                            35  
+00001034  FFFF FFFF                 36      SIMHALT  
+00001038                            37  
+00001038= 4C 6F 6F 70 79 00         38  MESSAGE DC.B    'Loopy', 0
+0000103E                            39  
+0000103E                            40  
+0000103E                            41      END    START  
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+CARBON_REDUCTION    102C
+MESSAGE             1038
+NEXT                1010
+START               1000
